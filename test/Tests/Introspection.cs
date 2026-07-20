@@ -1,18 +1,18 @@
-﻿// Copyright (c) Duende Software. All rights reserved.
+// Copyright (c) Duende Software. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 using FluentAssertions;
-using Duende.IdentityModel;
-using Duende.IdentityModel.Client;
+using IdentityModel;
+using IdentityModel.Client;
 using IdentityModel.AspNetCore.OAuth2Introspection;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Tests.Util;
@@ -359,7 +359,7 @@ namespace Tests
             response.StatusCode.Should().Be(HttpStatusCode.OK);
 
             var responseDataStr = await response.Content.ReadAsStringAsync();
-            var responseData = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseDataStr);
+            var responseData = JsonSerializer.Deserialize<Dictionary<string, string>>(responseDataStr);
 
             responseData.Should().Contain("token", expectedToken);
         }
@@ -388,7 +388,7 @@ namespace Tests
             secondResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 
             var responseDataStr = await secondResponse.Content.ReadAsStringAsync();
-            var responseData = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseDataStr);
+            var responseData = JsonSerializer.Deserialize<Dictionary<string, string>>(responseDataStr);
 
             responseData.Should().Contain("token", expectedToken);
             AssertCacheItemExists(server, string.Empty, expectedToken);
@@ -420,7 +420,7 @@ namespace Tests
             secondResponse.StatusCode.Should().Be(HttpStatusCode.OK);
 
             var responseDataStr = await secondResponse.Content.ReadAsStringAsync();
-            var responseData = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseDataStr);
+            var responseData = JsonSerializer.Deserialize<Dictionary<string, string>>(responseDataStr);
 
             responseData.Should().Contain("token", expectedToken);
             AssertCacheItemExists(server, cacheKeyPrefix, expectedToken);

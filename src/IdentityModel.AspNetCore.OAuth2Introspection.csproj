@@ -1,14 +1,22 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFramework>net10.0</TargetFramework>
+    <Version>10.0.0</Version>
+    <AssemblyName>IdentityModel.AspNetCore.OAuth2Introspection</AssemblyName>
+    <RootNamespace>IdentityModel.AspNetCore.OAuth2Introspection</RootNamespace>
 
-    <PackageId>IdentityModel.AspNetCore.OAuth2Introspection</PackageId>
-    <Description>ASP.NET Core authentication handler for validating tokens using OAuth 2.0 introspection</Description>
-    <Authors>Dominick Baier;Brock Allen</Authors>
-    <PackageTags>OAuth2;OAuth 2.0;Introspection;Security;Identity;IdentityServer</PackageTags>
+    <PackageId>ZinfoFramework.IdentityModel.AspNetCore.OAuth2Introspection</PackageId>
+    <Description>ZinfoFramework's independently maintained ASP.NET Core authentication handler for validating tokens using OAuth 2.0 introspection.</Description>
+    <Authors>Luiz Antonio</Authors>
+    <Copyright>Copyright Dominick Baier &amp; Brock Allen</Copyright>
+    <PackageTags>ZinfoFramework;OAuth2;OAuth 2.0;Introspection;Security;Identity;ASP.NET Core</PackageTags>
+    <PackageReleaseNotes>ZinfoFramework 10.0.0 is an independent continuation targeting .NET 10. The package now depends on ZinfoFramework.IdentityModel 10.0.0 while preserving the historical assembly and namespaces.</PackageReleaseNotes>
     <PackageIcon>icon.jpg</PackageIcon>
-    <PackageProjectUrl>https://github.com/IdentityModel/IdentityModel.AspNetCore.OAuth2Introspection</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Luizinfo/IdentityModel.AspNetCore.OAuth2Introspection</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Luizinfo/IdentityModel.AspNetCore.OAuth2Introspection.git</RepositoryUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   
@@ -20,6 +28,10 @@
 
   <ItemGroup>
     <None Include="../icon.jpg" Pack="true" Visible="false" PackagePath="" />
+    <None Include="../LICENSE" Pack="true" Visible="false" PackagePath="" />
+    <None Include="../NOTICE.md" Pack="true" Visible="false" PackagePath="" />
+    <None Include="../README.md" Pack="true" Visible="false" PackagePath="" />
+    <None Include="../CHANGELOG.md" Pack="true" Visible="false" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,8 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Duende.IdentityModel" Version="7.1.0" />
+    <PackageReference Include="ZinfoFramework.IdentityModel" Version="[10.0.0]" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
-    <PackageReference Include="minver" Version="6.0.0" PrivateAssets="All" />
   </ItemGroup>
 </Project>
