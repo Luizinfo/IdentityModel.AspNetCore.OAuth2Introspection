@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Pin local builds and CI to .NET SDK 10.0.401 through global.json.
+- Validate pull requests on Windows, Linux, and macOS without package publication.
+- Use the patched SourceLink implementation supplied by the SDK instead of the vulnerable Microsoft.Build.Tasks.Git 8.0.0 dependency.
+
 All notable changes to this independent continuation are documented here.
 
 ## 10.0.0

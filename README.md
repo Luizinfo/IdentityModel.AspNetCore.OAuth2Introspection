@@ -57,3 +57,9 @@ Typical migration:
 - [Notice and attribution](https://github.com/Luizinfo/IdentityModel.AspNetCore.OAuth2Introspection/blob/main/NOTICE.md)
 
 The historical upstream is available at [IdentityModel/IdentityModel.AspNetCore.OAuth2Introspection](https://github.com/IdentityModel/IdentityModel.AspNetCore.OAuth2Introspection). The separate Duende successor may be useful to users who prefer that product line, but it is not the operational home of this independent continuation.
+
+## Build and pull-request validation
+
+Install the exact .NET SDK **10.0.401** selected by `global.json`. Run `./build.ps1` on Windows or `./build.sh` on Linux/macOS from the repository root. The default build compiles the solution, runs its tests, and creates local validation packages. CI installs the same SDK from `global.json` and checks Windows, Linux, and macOS. It runs for pull requests and correction/release branches without publishing packages.
+
+Unreleased build changes do not replace the existing NuGet release. A future publication requires a new package version and validation of the final artifacts.
